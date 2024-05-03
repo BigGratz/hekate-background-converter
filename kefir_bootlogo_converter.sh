@@ -10,8 +10,8 @@ fi
 for file in *; do
     # Проверяем, что это файл изображения
     if [[ -f "$file" && $(file -b --mime-type "$file") =~ ^image/ ]]; then
-        # Переворачиваем изображение на 90 градусов
-        convert "$file" -rotate 90 temp.bmp
+        # Переворачиваем изображение на 270 градусов
+        convert "$file" -rotate 270 temp.bmp
 
         # Преобразуем в заданный формат (720x1280, 32-битный цвет RGBA)
         convert temp.bmp -resize 720x1280 -depth 8 -type TrueColorAlpha bootlogo_kefir.bmp
